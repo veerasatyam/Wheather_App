@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #e3f2fd;
+  overflow: hidden;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* Center the top-bar without affecting body or background */
+.top-bar {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 24px;
+
+  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent for overlay look */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+/* Input styling */
+.top-bar input[type="text"] {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  min-width: 200px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.top-bar input[type="text"]:focus {
+  border-color: #007BFF;
+}
+
+/* General button style */
+.top-bar button {
+  padding: 10px 16px;
+  font-size: 15px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+/* On hover effect */
+.top-bar button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Style current-location button differently */
+.top-bar .current-location {
+  background-color: #28a745;
+}
+
+.top-bar .current-location:hover {
+  background-color: #1e7e34;
+}
+
+
+.image-stack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.image-stack img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.image-stack img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+.weather-result {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 24px 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  color: #333;
+}
+
+/* Heading styling */
+.weather-result h2 {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Icon */
+.weather-result img {
+  width: 100px;
+  height: 100px;
+  margin: 8px 0;
+}
+
+/* Paragraph styling */
+.weather-result p {
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+/* Highlighted text */
+.weather-result strong {
+  color: #007BFF;
+}
+
+.weather-result p i {
+  margin-right: 8px;
+  color: #007BFF;
+}
+
+
+/* Background Video */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 1;
+}
+
+/* Dark Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
